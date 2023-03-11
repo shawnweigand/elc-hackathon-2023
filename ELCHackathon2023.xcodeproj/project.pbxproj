@@ -13,7 +13,8 @@
 		FA80819529BC405100798CF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA80819329BC405100798CF3 /* Main.storyboard */; };
 		FA80819729BC405200798CF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA80819629BC405200798CF3 /* Assets.xcassets */; };
 		FA80819A29BC405200798CF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA80819829BC405200798CF3 /* LaunchScreen.storyboard */; };
-		FA8081A429BC45D400798CF3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081A329BC45D400798CF3 /* TestViewController.swift */; };
+		FA8081A729BD13D300798CF3 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081A629BD13D300798CF3 /* CategoryCell.swift */; };
+		FA8081AA29BD315A00798CF3 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081A929BD315A00798CF3 /* CustomCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		FA80819629BC405200798CF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA80819929BC405200798CF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA80819B29BC405200798CF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA8081A329BC45D400798CF3 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FA8081A629BD13D300798CF3 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		FA8081A929BD315A00798CF3 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		FA80818C29BC405100798CF3 /* ELCHackathon2023 */ = {
 			isa = PBXGroup;
 			children = (
+				FA8081A829BD313E00798CF3 /* Layouts */,
 				FA8081A529BC4ABA00798CF3 /* Cells */,
 				FA8081A229BC40CD00798CF3 /* Controllers */,
 				FA8081A129BC40B000798CF3 /* Views */,
@@ -82,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				FA80819129BC405100798CF3 /* HomeViewController.swift */,
-				FA8081A329BC45D400798CF3 /* TestViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -90,8 +92,17 @@
 		FA8081A529BC4ABA00798CF3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				FA8081A629BD13D300798CF3 /* CategoryCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		FA8081A829BD313E00798CF3 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				FA8081A929BD315A00798CF3 /* CustomCollectionViewLayout.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,8 +178,9 @@
 			files = (
 				FA80819229BC405100798CF3 /* HomeViewController.swift in Sources */,
 				FA80818E29BC405100798CF3 /* AppDelegate.swift in Sources */,
-				FA8081A429BC45D400798CF3 /* TestViewController.swift in Sources */,
 				FA80819029BC405100798CF3 /* SceneDelegate.swift in Sources */,
+				FA8081AA29BD315A00798CF3 /* CustomCollectionViewLayout.swift in Sources */,
+				FA8081A729BD13D300798CF3 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
