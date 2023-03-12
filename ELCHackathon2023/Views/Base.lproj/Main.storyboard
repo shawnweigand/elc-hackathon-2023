@@ -57,13 +57,41 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zGg-kc-dEk">
+                                <rect key="frame" x="11" y="212" width="370" height="606"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QoI-DW-Fr9">
+                                    <size key="itemSize" width="177" height="255"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="vo6-v4-JEq" customClass="ProductCell" customModule="ELCHackathon2023" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="255"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Osk-XL-Ol7">
+                                            <rect key="frame" x="0.0" y="0.0" width="177" height="255"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="177" height="255"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wzQ-ml-bEX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="always" id="rxC-aJ-hVt"/>
+                    <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="always" id="rxC-aJ-hVt">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Bot" image="person.bust.fill" catalog="system" id="8vD-78-1fF"/>
+                            <barButtonItem title="Add Item" image="plus.viewfinder" catalog="system" id="8fE-9O-eBD"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
-                        <outlet property="categoriesCollectionview" destination="h8I-6U-LDT" id="7c3-1K-y7k"/>
+                        <outlet property="categoriesCollectionView" destination="h8I-6U-LDT" id="7c3-1K-y7k"/>
+                        <outlet property="productsCollectionView" destination="zGg-kc-dEk" id="443-0y-UdQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9n-6k-xbS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -90,11 +118,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person.bust.fill" catalog="system" width="119" height="128"/>
+        <image name="plus.viewfinder" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
