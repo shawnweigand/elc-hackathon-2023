@@ -115,9 +115,11 @@ extension HomeViewController {
             return
         }
         
+        
         UIView.animate(withDuration: 0.2) {
             cell.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             cell.activeIndicatorView.isHidden = false
+            cell.categoryLabel.textColor = .black
             
         }
         
@@ -128,6 +130,7 @@ extension HomeViewController {
                     UIView.animate(withDuration: 0.2) {
                         otherCell.transform = .identity
                         otherCell.activeIndicatorView.isHidden = true
+                        otherCell.categoryLabel.textColor = .lightGray
                     }
                 }
             }
