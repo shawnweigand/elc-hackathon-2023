@@ -46,16 +46,32 @@ class VisionObjectRecognitionViewController: TestViewController {
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
 //        detectionOverlay.sublayers = nil // remove all the old recognized objects
-        for observation in results where observation is VNRecognizedObjectObservation {
-            guard let objectObservation = observation as? VNRecognizedObjectObservation else {
-                continue
-            }
-            // Select only the label with the highest confidence.
-            let topLabelObservation = objectObservation.labels[0]
-            let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
-            
-            print(topLabelObservation.identifier, topLabelObservation.confidence)
-        }
+        
+        
+        
+        
+        let classif = results.compactMap({$0 as? VNRecognizedObjectObservation})
+            .filter({$0.labels[0].confidence > 0.5})
+            .map({$0.labels[0].identifier})
+        
+        print(classif)
+        
+        
+//        for observation in results where observation is VNRecognizedObjectObservation {
+//            guard let objectObservation = observation as? VNRecognizedObjectObservation else {
+//                continue
+//            }
+//            // Select only the label with the highest confidence.
+//            let topLabelObservation = objectObservation.labels[0]
+//            let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
+//
+//            print(topLabelObservation.identifier, topLabelObservation.confidence)
+//            let generator = UINotificationFeedbackGenerator()
+//                generator.notificationOccurred(.success)
+//
+//
+//
+//        }
 //        self.updateLayerGeometry()
         CATransaction.commit()
     }
