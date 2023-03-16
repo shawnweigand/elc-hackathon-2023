@@ -20,6 +20,8 @@
 		FA8081AC29BE775400798CF3 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081AB29BE775400798CF3 /* ProductCell.swift */; };
 		FA8081B029C2B0D900798CF3 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8081AF29C2B0D900798CF3 /* products.json */; };
 		FA8081B229C2B66800798CF3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081B129C2B66800798CF3 /* TestViewController.swift */; };
+		FA905CA329C3C33A002E2D63 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = FA905CA229C3C33A002E2D63 /* SwiftyJSON */; };
+		FA905CA629C3C405002E2D63 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905CA529C3C405002E2D63 /* Product.swift */; };
 		FAF3D48E29C3AAB800EC9EA7 /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF3D48D29C3AAB700EC9EA7 /* CoreML.framework */; };
 		FAF3D49029C3AABD00EC9EA7 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF3D48F29C3AABD00EC9EA7 /* Vision.framework */; };
 		FAF3D49229C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3D49129C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift */; };
@@ -42,6 +44,7 @@
 		FA8081AB29BE775400798CF3 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		FA8081AF29C2B0D900798CF3 /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		FA8081B129C2B66800798CF3 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FA905CA529C3C405002E2D63 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		FAF3D48D29C3AAB700EC9EA7 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		FAF3D48F29C3AABD00EC9EA7 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		FAF3D49129C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionObjectRecognitionViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 			files = (
 				FAF3D48E29C3AAB800EC9EA7 /* CoreML.framework in Frameworks */,
 				FAF3D49029C3AABD00EC9EA7 /* Vision.framework in Frameworks */,
+				FA905CA329C3C33A002E2D63 /* SwiftyJSON in Frameworks */,
 				FA0764D429C2D16200527ED1 /* CoreNFC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +151,7 @@
 		FA8081AD29BE7C4100798CF3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA905CA529C3C405002E2D63 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +179,9 @@
 			dependencies = (
 			);
 			name = ELCHackathon2023;
+			packageProductDependencies = (
+				FA905CA229C3C33A002E2D63 /* SwiftyJSON */,
+			);
 			productName = ELCHackathon2023;
 			productReference = FA80818A29BC405100798CF3 /* ELCHackathon2023.app */;
 			productType = "com.apple.product-type.application";
@@ -202,6 +210,9 @@
 				Base,
 			);
 			mainGroup = FA80818129BC405100798CF3;
+			packageReferences = (
+				FA905CA129C3C33A002E2D63 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = FA80818B29BC405100798CF3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -237,6 +248,7 @@
 				FA80819029BC405100798CF3 /* SceneDelegate.swift in Sources */,
 				FA8081AC29BE775400798CF3 /* ProductCell.swift in Sources */,
 				FAF3D49229C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift in Sources */,
+				FA905CA629C3C405002E2D63 /* Product.swift in Sources */,
 				FA8081AA29BD315A00798CF3 /* CustomCollectionViewLayout.swift in Sources */,
 				FA8081A729BD13D300798CF3 /* CategoryCell.swift in Sources */,
 			);
@@ -389,10 +401,12 @@
 				DEVELOPMENT_TEAM = RQMWDBN53R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ELCHackathon2023/Info.plist;
-				INFOPLIST_KEY_NFCReaderUsageDescription = "Please allow";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -420,10 +434,12 @@
 				DEVELOPMENT_TEAM = RQMWDBN53R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ELCHackathon2023/Info.plist;
-				INFOPLIST_KEY_NFCReaderUsageDescription = "Please allow";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -462,6 +478,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA905CA129C3C33A002E2D63 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA905CA229C3C33A002E2D63 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA905CA129C3C33A002E2D63 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA80818229BC405100798CF3 /* Project object */;
 }
