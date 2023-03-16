@@ -160,6 +160,9 @@ extension HomeViewController {
         UIView.animate(withDuration: 0.2) {
             cell.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             cell.activeIndicatorView.isHidden = false
+            cell.activeIndicatorView.layer.cornerRadius = 8
+            cell.activeIndicatorView.layer.masksToBounds = true
+            cell.activeIndicatorView.layer.opacity = 0.8
             cell.categoryLabel.textColor = .black
             
         }
