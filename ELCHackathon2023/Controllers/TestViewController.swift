@@ -1,72 +1,123 @@
-import UIKit
+//
+//  TestViewController.swift
+//  ELCHackathon2023
+//
+//  Created by Macbook on 3/15/23.
+//
 
-class TestViewController: UIViewController {
+import UIKit
+import CoreNFC
+import AVKit
+import AVFoundation
+import Vision
+
+
+class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    // Define the array of product categories
-    let productCategories = ["Category 1", "Category 2", "Category 3", "Category 4"]
+    var bufferSize: CGSize = .zero
+    var rootLayer: CALayer! = nil
     
-    // Define the current category index
-    var currentCategoryIndex = 0
+    @IBOutlet weak private var previewView: UIView!
+    private let session = AVCaptureSession()
+    private var previewLayer: AVCaptureVideoPreviewLayer! = nil
+    private let videoDataOutput = AVCaptureVideoDataOutput()
     
-    // Define the swipe view controller
-    lazy var swipeViewController: UIPageViewController = {
-        let swipeVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        swipeVC.dataSource = self
-        swipeVC.delegate = self
-        swipeVC.view.backgroundColor = .white
-        swipeVC.setViewControllers([createCategoryViewController(categoryIndex: currentCategoryIndex)], direction: .forward, animated: false, completion: nil)
-        return swipeVC
-    }()
+    private let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        // to be implemented in the subclass
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Add the swipe view controller to the main view
-        addChild(swipeViewController)
-        view.addSubview(swipeViewController.view)
-        swipeViewController.view.frame = view.bounds
-        swipeViewController.didMove(toParent: self)
+        setupAVCapture()
     }
     
-    // Create a new view controller for a given category index
-    func createCategoryViewController(categoryIndex: Int) -> UIViewController {
-        let categoryVC = UIViewController()
-        categoryVC.view.backgroundColor = .white
-        let label = UILabel()
-        label.text = productCategories[categoryIndex]
-        label.font = UIFont.systemFont(ofSize: 24)
-        label.textAlignment = .center
-        categoryVC.view.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.centerXAnchor.constraint(equalTo: categoryVC.view.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: categoryVC.view.centerYAnchor).isActive = true
-        return categoryVC
-    }
-}
-
-extension TestViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if currentCategoryIndex == 0 {
-            return nil
-        }
-        currentCategoryIndex -= 1
-        return createCategoryViewController(categoryIndex: currentCategoryIndex)
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if currentCategoryIndex == productCategories.count - 1 {
-            return nil
+    func setupAVCapture() {
+        var deviceInput: AVCaptureDeviceInput!
+        
+        // Select a video device, make an input
+        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first
+        do {
+            deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
+        } catch {
+            print("Could not create video device input: \(error)")
+            return
         }
-        currentCategoryIndex += 1
-        return createCategoryViewController(categoryIndex: currentCategoryIndex)
+        
+        session.beginConfiguration()
+        session.sessionPreset = .vga640x480// Model image size is smaller.
+        
+        // Add a video input
+        guard session.canAddInput(deviceInput) else {
+            print("Could not add video device input to the session")
+            session.commitConfiguration()
+            return
+        }
+        session.addInput(deviceInput)
+        if session.canAddOutput(videoDataOutput) {
+            session.addOutput(videoDataOutput)
+            // Add a video data output
+            videoDataOutput.alwaysDiscardsLateVideoFrames = true
+            
+            videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
+            videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
+        } else {
+            print("Could not add video data output to the session")
+            session.commitConfiguration()
+            return
+        }
+        let captureConnection = videoDataOutput.connection(with: .video)
+        // Always process the frames
+        captureConnection?.isEnabled = true
+        do {
+            try  videoDevice!.lockForConfiguration()
+            let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice?.activeFormat.formatDescription)!)
+            bufferSize.width = CGFloat(dimensions.width)
+            bufferSize.height = CGFloat(dimensions.height)
+            videoDevice!.unlockForConfiguration()
+        } catch {
+            print(error)
+        }
+        session.commitConfiguration()
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        rootLayer = previewView.layer
+        previewLayer.frame = rootLayer.bounds
+        rootLayer.addSublayer(previewLayer)
     }
-}
-
-extension TestViewController: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if completed, let currentVC = pageViewController.viewControllers?.first {
-            if let categoryIndex = productCategories.firstIndex(of: (currentVC.children.first as? UILabel)?.text ?? "") {
-                currentCategoryIndex = categoryIndex
-            }
+    
+    func startCaptureSession() {
+        session.startRunning()
+    }
+    
+    // Clean up capture setup
+    func teardownAVCapture() {
+        previewLayer.removeFromSuperlayer()
+        previewLayer = nil
+    }
+    
+   public func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
+        let curDeviceOrientation = UIDevice.current.orientation
+        let exifOrientation: CGImagePropertyOrientation
+        
+        switch curDeviceOrientation {
+        case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
+            exifOrientation = .left
+        case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
+            exifOrientation = .upMirrored
+        case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
+            exifOrientation = .down
+        case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
+            exifOrientation = .up
+        default:
+            exifOrientation = .up
         }
+        return exifOrientation
     }
 }

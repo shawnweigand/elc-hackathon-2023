@@ -1,0 +1,23 @@
+[
+    {
+     "id" : 1
+     "name": "Energizing Gel Cream",
+     "description": "Glow for it with our best moisturizer for oily skin: it hydrates for 72 hours, improves skin’s moisture barrier and the best part—delivers all-day glow.",
+     "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+     "skin_concern": [],
+     "categpry": "Moisturizers",
+     "price": 39.00,
+     "how_to_use": "AM and PM, dot, pat, press the moisturizer onto clean skin or after you apply treatment lotion and serum.",
+     "ingredients": [
+         "Vital-Synthesis Technology": "Helps provide skin with natural energy to revitalize the look of tired skin",
+         "Vitamin C" : "Antioxidant-rich ingredient helps brighten skin over time",
+         "Niacinamide" : "Helps improve skin’s moisture bar"
+     ],
+     "colors": [],
+     "images": [
+        "product" : "",
+        "bg" : "",
+        "inside": "",
+     ],
+    }
+]
