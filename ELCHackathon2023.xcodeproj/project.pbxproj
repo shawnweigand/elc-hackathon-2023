@@ -26,6 +26,8 @@
 		FAF2364A29C410870056E90A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364929C410870056E90A /* ViewController.swift */; };
 		FAF2364D29C49F730056E90A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364C29C49F730056E90A /* UIColor+Extension.swift */; };
 		FAF2364F29C4A5F80056E90A /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364E29C4A5F80056E90A /* ProductsService.swift */; };
+		FAF2365229C4E5430056E90A /* scan.json in Resources */ = {isa = PBXBuildFile; fileRef = FAF2365129C4E5430056E90A /* scan.json */; };
+		FAF2365529C4E5CE0056E90A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FAF2365429C4E5CE0056E90A /* Lottie */; };
 		FAF3D48E29C3AAB800EC9EA7 /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF3D48D29C3AAB700EC9EA7 /* CoreML.framework */; };
 		FAF3D49029C3AABD00EC9EA7 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF3D48F29C3AABD00EC9EA7 /* Vision.framework */; };
 		FAF3D49229C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3D49129C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift */; };
@@ -53,6 +55,7 @@
 		FAF2364929C410870056E90A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAF2364C29C49F730056E90A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FAF2364E29C4A5F80056E90A /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
+		FAF2365129C4E5430056E90A /* scan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scan.json; sourceTree = "<group>"; };
 		FAF3D48D29C3AAB700EC9EA7 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		FAF3D48F29C3AABD00EC9EA7 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		FAF3D49129C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionObjectRecognitionViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF2365529C4E5CE0056E90A /* Lottie in Frameworks */,
 				FAF3D48E29C3AAB800EC9EA7 /* CoreML.framework in Frameworks */,
 				FAF3D49029C3AABD00EC9EA7 /* Vision.framework in Frameworks */,
 				FA905CA329C3C33A002E2D63 /* SwiftyJSON in Frameworks */,
@@ -103,6 +107,7 @@
 		FA80818C29BC405100798CF3 /* ELCHackathon2023 */ = {
 			isa = PBXGroup;
 			children = (
+				FAF2365029C4E5360056E90A /* Lottie */,
 				FAF2364B29C49F5A0056E90A /* Ext */,
 				FA0764D529C2D24600527ED1 /* ELCHackathon2023.entitlements */,
 				FA8081AE29BE7C4800798CF3 /* Services */,
@@ -183,6 +188,14 @@
 			path = Ext;
 			sourceTree = "<group>";
 		};
+		FAF2365029C4E5360056E90A /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				FAF2365129C4E5430056E90A /* scan.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,6 +214,7 @@
 			name = ELCHackathon2023;
 			packageProductDependencies = (
 				FA905CA229C3C33A002E2D63 /* SwiftyJSON */,
+				FAF2365429C4E5CE0056E90A /* Lottie */,
 			);
 			productName = ELCHackathon2023;
 			productReference = FA80818A29BC405100798CF3 /* ELCHackathon2023.app */;
@@ -232,6 +246,7 @@
 			mainGroup = FA80818129BC405100798CF3;
 			packageReferences = (
 				FA905CA129C3C33A002E2D63 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				FAF2365329C4E5CE0056E90A /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = FA80818B29BC405100798CF3 /* Products */;
 			projectDirPath = "";
@@ -251,6 +266,7 @@
 				FA8081B029C2B0D900798CF3 /* products.json in Resources */,
 				FA80819729BC405200798CF3 /* Assets.xcassets in Resources */,
 				FA80819529BC405100798CF3 /* Main.storyboard in Resources */,
+				FAF2365229C4E5430056E90A /* scan.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +528,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		FAF2365329C4E5CE0056E90A /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -519,6 +543,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA905CA129C3C33A002E2D63 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		FAF2365429C4E5CE0056E90A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAF2365329C4E5CE0056E90A /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

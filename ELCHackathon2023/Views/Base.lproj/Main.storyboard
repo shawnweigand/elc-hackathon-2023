@@ -132,6 +132,9 @@
                             </barButtonItem>
                             <barButtonItem title="Add Item" image="plus.viewfinder" catalog="system" id="8fE-9O-eBD">
                                 <color key="tintColor" red="0.1202752678" green="0.46866945879999999" blue="0.2073738155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="Rhh-JN-mr8" kind="show" id="8wy-u4-JhQ"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -142,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9n-6k-xbS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1794.4186046511627" y="-15.450643776824036"/>
+            <point key="canvasLocation" x="-2277" y="68"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1td-0H-OAs">
@@ -167,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOw-mD-6vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-196.74418604651163" y="-69.527896995708161"/>
+            <point key="canvasLocation" x="-1208" y="68"/>
         </scene>
         <!--Vision Object Recognition View Controller-->
         <scene sceneID="A2a-Ju-Kb3">
@@ -177,31 +180,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eb5-tH-LNc">
-                                <rect key="frame" x="138" y="306" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="test:" destination="Rhh-JN-mr8" eventType="touchUpInside" id="rEQ-mJ-eHG"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6oi-4J-QjZ">
-                                <rect key="frame" x="76" y="425" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eb5-tH-LNc">
+                                        <rect key="frame" x="157" y="402" width="75" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="test:" destination="Rhh-JN-mr8" eventType="touchUpInside" id="rEQ-mJ-eHG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zpq-JB-tdv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ycv-Q7-PIc"/>
                     <connections>
                         <outlet property="previewView" destination="6oi-4J-QjZ" id="WCV-LQ-wYs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lWw-7m-1Lr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="600" y="-92.060085836909877"/>
+            <point key="canvasLocation" x="-289" y="68"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2BX-2C-wGD">

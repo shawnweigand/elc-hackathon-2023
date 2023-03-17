@@ -76,19 +76,51 @@ class VisionObjectRecognitionViewController: TestViewController {
         CATransaction.commit()
     }
     
+    func downsamplePixelBuffer(_ pixelBuffer: CVPixelBuffer, to size: CGSize) -> CVPixelBuffer? {
+        var ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+        let scale = CGAffineTransform(scaleX: size.width / CGFloat(CVPixelBufferGetWidth(pixelBuffer)), y: size.height / CGFloat(CVPixelBufferGetHeight(pixelBuffer)))
+        ciImage = ciImage.transformed(by: scale)
+        
+        let ciContext = CIContext(options: nil)
+        var downsampledPixelBuffer: CVPixelBuffer?
+        let result = CVPixelBufferCreate(kCFAllocatorDefault, Int(size.width), Int(size.height), kCVPixelFormatType_32BGRA, [kCVPixelBufferCGImageCompatibilityKey: true, kCVPixelBufferCGBitmapContextCompatibilityKey: true] as CFDictionary, &downsampledPixelBuffer)
+        
+        if result == kCVReturnSuccess {
+            ciContext.render(ciImage, to: downsampledPixelBuffer!)
+            return downsampledPixelBuffer
+        }
+        return nil
+    }
+
+    
     override func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
         }
         
-        let exifOrientation = exifOrientationFromDeviceOrientation()
         
-        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: exifOrientation, options: [:])
-        do {
-            try imageRequestHandler.perform(self.requests)
-        } catch {
-            print(error)
-        }
+        let newSize = CGSize(width: 640, height: 480) // VGA640 resolution
+           guard let downsampledPixelBuffer = downsamplePixelBuffer(pixelBuffer, to: newSize) else {
+               return
+           }
+
+           let exifOrientation = exifOrientationFromDeviceOrientation()
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: downsampledPixelBuffer, orientation: exifOrientation, options: [:])
+           do {
+               try imageRequestHandler.perform(self.requests)
+           } catch {
+               print(error)
+           }
+  
+//
+//        let exifOrientation = exifOrientationFromDeviceOrientation()
+//
+//        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: exifOrientation, options: [:])
+//        do {
+//            try imageRequestHandler.perform(self.requests)
+//        } catch {
+//            print(error)
+//        }
     }
     
     override func setupAVCapture() {

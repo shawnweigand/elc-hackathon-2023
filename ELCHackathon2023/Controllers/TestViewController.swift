@@ -10,12 +10,15 @@ import CoreNFC
 import AVKit
 import AVFoundation
 import Vision
+import Lottie
 
 
 class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     var bufferSize: CGSize = .zero
     var rootLayer: CALayer! = nil
+    
+    
     
     @IBOutlet weak private var previewView: UIView!
     private let session = AVCaptureSession()
@@ -24,6 +27,8 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     
     private let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
     
+    private var animationView: LottieAnimationView?
+    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         // to be implemented in the subclass
     }
@@ -31,6 +36,17 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAVCapture()
+        setupAnimation()
+    }
+    
+    func setupAnimation(){
+        animationView = .init(name: "scan")
+        animationView!.frame = view.bounds
+        animationView!.contentMode = .scaleAspectFit
+        animationView!.loopMode = .loop
+        animationView!.animationSpeed = 0.5
+        previewView.addSubview(animationView!)
+        animationView!.play()
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,7 +58,7 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first
+        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first
         do {
             deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
         } catch {
@@ -51,7 +67,7 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         }
         
         session.beginConfiguration()
-        session.sessionPreset = .vga640x480// Model image size is smaller.
+        session.sessionPreset = .hd4K3840x2160// Model image size is smaller.
         
         // Add a video input
         guard session.canAddInput(deviceInput) else {
@@ -108,16 +124,23 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         
         switch curDeviceOrientation {
         case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
+            print("left")
             exifOrientation = .left
         case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
             exifOrientation = .upMirrored
+            print("upMirrored")
         case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
             exifOrientation = .down
+            print("down")
         case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
             exifOrientation = .up
+            print("up")
         default:
             exifOrientation = .up
+            print("up")
         }
+       
+       
         return exifOrientation
     }
 }
