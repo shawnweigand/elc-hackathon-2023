@@ -22,6 +22,10 @@
 		FA8081B229C2B66800798CF3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081B129C2B66800798CF3 /* TestViewController.swift */; };
 		FA905CA329C3C33A002E2D63 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = FA905CA229C3C33A002E2D63 /* SwiftyJSON */; };
 		FA905CA629C3C405002E2D63 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905CA529C3C405002E2D63 /* Product.swift */; };
+		FAF2364829C40FD90056E90A /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */; };
+		FAF2364A29C410870056E90A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364929C410870056E90A /* ViewController.swift */; };
+		FAF2364D29C49F730056E90A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364C29C49F730056E90A /* UIColor+Extension.swift */; };
+		FAF2364F29C4A5F80056E90A /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364E29C4A5F80056E90A /* ProductsService.swift */; };
 		FAF3D48E29C3AAB800EC9EA7 /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF3D48D29C3AAB700EC9EA7 /* CoreML.framework */; };
 		FAF3D49029C3AABD00EC9EA7 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF3D48F29C3AABD00EC9EA7 /* Vision.framework */; };
 		FAF3D49229C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3D49129C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift */; };
@@ -45,6 +49,10 @@
 		FA8081AF29C2B0D900798CF3 /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		FA8081B129C2B66800798CF3 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		FA905CA529C3C405002E2D63 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
+		FAF2364929C410870056E90A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAF2364C29C49F730056E90A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		FAF2364E29C4A5F80056E90A /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
 		FAF3D48D29C3AAB700EC9EA7 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		FAF3D48F29C3AABD00EC9EA7 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		FAF3D49129C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionObjectRecognitionViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +103,7 @@
 		FA80818C29BC405100798CF3 /* ELCHackathon2023 */ = {
 			isa = PBXGroup;
 			children = (
+				FAF2364B29C49F5A0056E90A /* Ext */,
 				FA0764D529C2D24600527ED1 /* ELCHackathon2023.entitlements */,
 				FA8081AE29BE7C4800798CF3 /* Services */,
 				FA8081AD29BE7C4100798CF3 /* Models */,
@@ -127,6 +136,8 @@
 				FA80819129BC405100798CF3 /* HomeViewController.swift */,
 				FA8081B129C2B66800798CF3 /* TestViewController.swift */,
 				FAF3D49129C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift */,
+				FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */,
+				FAF2364929C410870056E90A /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -159,8 +170,17 @@
 		FA8081AE29BE7C4800798CF3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FAF2364E29C4A5F80056E90A /* ProductsService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FAF2364B29C49F5A0056E90A /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				FAF2364C29C49F730056E90A /* UIColor+Extension.swift */,
+			);
+			path = Ext;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,11 +264,15 @@
 				FA8081B229C2B66800798CF3 /* TestViewController.swift in Sources */,
 				FA80819229BC405100798CF3 /* HomeViewController.swift in Sources */,
 				FA08C70B29C38DE90074B255 /* OriginsProductDetection.mlmodel in Sources */,
+				FAF2364F29C4A5F80056E90A /* ProductsService.swift in Sources */,
 				FA80818E29BC405100798CF3 /* AppDelegate.swift in Sources */,
 				FA80819029BC405100798CF3 /* SceneDelegate.swift in Sources */,
 				FA8081AC29BE775400798CF3 /* ProductCell.swift in Sources */,
+				FAF2364A29C410870056E90A /* ViewController.swift in Sources */,
 				FAF3D49229C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift in Sources */,
+				FAF2364829C40FD90056E90A /* NavigationControllerDelegate.swift in Sources */,
 				FA905CA629C3C405002E2D63 /* Product.swift in Sources */,
+				FAF2364D29C49F730056E90A /* UIColor+Extension.swift in Sources */,
 				FA8081AA29BD315A00798CF3 /* CustomCollectionViewLayout.swift in Sources */,
 				FA8081A729BD13D300798CF3 /* CategoryCell.swift in Sources */,
 			);
