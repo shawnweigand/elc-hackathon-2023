@@ -116,7 +116,6 @@
                                             <outlet property="productImage" destination="dgn-Ww-LVL" id="V9K-p8-Xnz"/>
                                             <outlet property="productSubTitle" destination="1KE-xD-FpB" id="bBv-x0-pbg"/>
                                             <outlet property="productTitle" destination="Qkx-Vy-8zG" id="znH-bC-98N"/>
-                                            <segue destination="fmL-6U-pTA" kind="push" id="04p-XM-hy3"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -145,12 +144,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9n-6k-xbS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2277" y="68"/>
+            <point key="canvasLocation" x="-2266" y="215"/>
         </scene>
-        <!--View Controller-->
+        <!--Product Detail View Controller-->
         <scene sceneID="1td-0H-OAs">
             <objects>
-                <viewController id="fmL-6U-pTA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailViewController" id="fmL-6U-pTA" customClass="ProductDetailViewController" customModule="ELCHackathon2023" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lq8-Jq-1TU">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOw-mD-6vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1208" y="68"/>
+            <point key="canvasLocation" x="-1345" y="625"/>
         </scene>
         <!--Vision Object Recognition View Controller-->
         <scene sceneID="A2a-Ju-Kb3">
@@ -183,17 +182,6 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6oi-4J-QjZ">
                                 <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eb5-tH-LNc">
-                                        <rect key="frame" x="157" y="402" width="75" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        <connections>
-                                            <action selector="test:" destination="Rhh-JN-mr8" eventType="touchUpInside" id="rEQ-mJ-eHG"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -207,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lWw-7m-1Lr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-289" y="68"/>
+            <point key="canvasLocation" x="-1345" y="-89"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2BX-2C-wGD">

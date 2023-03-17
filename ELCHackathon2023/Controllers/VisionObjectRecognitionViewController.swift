@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 import Vision
 
-class VisionObjectRecognitionViewController: TestViewController {
+class VisionObjectRecognitionViewController: ScanViewController {
     
     private var detectionOverlay: CALayer! = nil
     
@@ -30,7 +30,7 @@ class VisionObjectRecognitionViewController: TestViewController {
                 DispatchQueue.main.async(execute: {
                     // perform all the UI updates on the main queue
                     if let results = request.results {
-                        self.drawVisionRequestResults(results)
+                        self.handleResults(results)
                     }
                 })
             })
@@ -42,39 +42,68 @@ class VisionObjectRecognitionViewController: TestViewController {
         return error
     }
     
-    func drawVisionRequestResults(_ results: [Any]) {
-        CATransaction.begin()
-        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-//        detectionOverlay.sublayers = nil // remove all the old recognized objects
+    func handleResults(_ results: [Any]) {
+        //        let classif = results.compactMap({$0 as? VNRecognizedObjectObservation})
+        //            .filter({$0.labels[0].confidence > 0.5})
+        //            .map({$0.labels[0].identifier})
+        //
+        //        print(classif)
         
-        
-        
-        
-        let classif = results.compactMap({$0 as? VNRecognizedObjectObservation})
-            .filter({$0.labels[0].confidence > 0.5})
-            .map({$0.labels[0].identifier})
-        
-        print(classif)
-        
-        
-//        for observation in results where observation is VNRecognizedObjectObservation {
-//            guard let objectObservation = observation as? VNRecognizedObjectObservation else {
-//                continue
-//            }
-//            // Select only the label with the highest confidence.
-//            let topLabelObservation = objectObservation.labels[0]
-//            let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
-//
+        for observation in results where observation is VNRecognizedObjectObservation {
+            guard let objectObservation = observation as? VNRecognizedObjectObservation else {
+                continue
+            }
+            // Select only the label with the highest confidence.
+            let topLabelObservation = objectObservation.labels[0]
 //            print(topLabelObservation.identifier, topLabelObservation.confidence)
+            
+            return productFound(slug: topLabelObservation.identifier)
+            
 //            let generator = UINotificationFeedbackGenerator()
-//                generator.notificationOccurred(.success)
+//            generator.notificationOccurred(.success)
 //
+//            //            VoiceService().speak(text: "Product found")
 //
-//
-//        }
-//        self.updateLayerGeometry()
-        CATransaction.commit()
+//            let utterance = AVSpeechUtterance(string: "Found")
+//            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+//            utterance.rate = 0.5
+//            synthesizer.speak(utterance)
+            
+        }
     }
+    
+    
+    func productFound(slug: String){
+        
+        stopCaptureSession()
+        // Vibrate the phone
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        
+        // Text to speech
+        let utterance = AVSpeechUtterance(string: "Product has been found.")
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+        synthesizer.speak(utterance)
+        
+//        Find the product with that id
+        let product = ProductsService().list().first(where:({$0.slug == slug}))
+        
+        //Display the product details
+        // Get a reference to the storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        // Get a reference to the view controller you want to push to
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
+        destinationViewController.product = product
+        // Push to the view controller
+        navigationController?.pushViewController(destinationViewController, animated: true)
+    }
+    
+    
+    
+    
+    
     
     func downsamplePixelBuffer(_ pixelBuffer: CVPixelBuffer, to size: CGSize) -> CVPixelBuffer? {
         var ciImage = CIImage(cvPixelBuffer: pixelBuffer)
@@ -125,77 +154,8 @@ class VisionObjectRecognitionViewController: TestViewController {
     
     override func setupAVCapture() {
         super.setupAVCapture()
-        
-        // setup Vision parts
-//        setupLayers()
-//        updateLayerGeometry()
         setupVision()
-        
-        // start the capture
         startCaptureSession()
     }
-    
-    func setupLayers() {
-        detectionOverlay = CALayer() // container layer that has all the renderings of the observations
-        detectionOverlay.name = "DetectionOverlay"
-        detectionOverlay.bounds = CGRect(x: 0.0,
-                                         y: 0.0,
-                                         width: bufferSize.width,
-                                         height: bufferSize.height)
-        detectionOverlay.position = CGPoint(x: rootLayer.bounds.midX, y: rootLayer.bounds.midY)
-        rootLayer.addSublayer(detectionOverlay)
-    }
-    
-    func updateLayerGeometry() {
-        let bounds = rootLayer.bounds
-        var scale: CGFloat
-        
-        let xScale: CGFloat = bounds.size.width / bufferSize.height
-        let yScale: CGFloat = bounds.size.height / bufferSize.width
-        
-        scale = fmax(xScale, yScale)
-        if scale.isInfinite {
-            scale = 1.0
-        }
-        CATransaction.begin()
-        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-        
-        // rotate the layer into screen orientation and scale and mirror
-        detectionOverlay.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 2.0)).scaledBy(x: scale, y: -scale))
-        // center the layer
-        detectionOverlay.position = CGPoint(x: bounds.midX, y: bounds.midY)
-        
-        CATransaction.commit()
-        
-    }
-    
-    func createTextSubLayerInBounds(_ bounds: CGRect, identifier: String, confidence: VNConfidence) -> CATextLayer {
-        let textLayer = CATextLayer()
-        textLayer.name = "Object Label"
-        let formattedString = NSMutableAttributedString(string: String(format: "\(identifier)\nConfidence:  %.2f", confidence))
-        let largeFont = UIFont(name: "Helvetica", size: 24.0)!
-        formattedString.addAttributes([NSAttributedString.Key.font: largeFont], range: NSRange(location: 0, length: identifier.count))
-        textLayer.string = formattedString
-        textLayer.bounds = CGRect(x: 0, y: 0, width: bounds.size.height - 10, height: bounds.size.width - 10)
-        textLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
-        textLayer.shadowOpacity = 0.7
-        textLayer.shadowOffset = CGSize(width: 2, height: 2)
-        textLayer.foregroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.0, 0.0, 0.0, 1.0])
-        textLayer.contentsScale = 2.0 // retina rendering
-        // rotate the layer into screen orientation and scale and mirror
-        textLayer.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 2.0)).scaledBy(x: 1.0, y: -1.0))
-        return textLayer
-    }
-    
-    func createRoundedRectLayerWithBounds(_ bounds: CGRect) -> CALayer {
-        let shapeLayer = CALayer()
-        shapeLayer.bounds = bounds
-        shapeLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
-        shapeLayer.name = "Found Object"
-        shapeLayer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 0.2, 0.4])
-        shapeLayer.cornerRadius = 7
-        return shapeLayer
-    }
-    
 }
 

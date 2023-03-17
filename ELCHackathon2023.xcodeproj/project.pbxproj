@@ -19,11 +19,14 @@
 		FA8081AA29BD315A00798CF3 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081A929BD315A00798CF3 /* CustomCollectionViewLayout.swift */; };
 		FA8081AC29BE775400798CF3 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081AB29BE775400798CF3 /* ProductCell.swift */; };
 		FA8081B029C2B0D900798CF3 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8081AF29C2B0D900798CF3 /* products.json */; };
-		FA8081B229C2B66800798CF3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081B129C2B66800798CF3 /* TestViewController.swift */; };
+		FA8081B229C2B66800798CF3 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081B129C2B66800798CF3 /* ScanViewController.swift */; };
 		FA905CA329C3C33A002E2D63 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = FA905CA229C3C33A002E2D63 /* SwiftyJSON */; };
 		FA905CA629C3C405002E2D63 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905CA529C3C405002E2D63 /* Product.swift */; };
+		FAC73E5F29C50EAE0040B7C3 /* UserActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E5E29C50EAE0040B7C3 /* UserActivityType.swift */; };
+		FAC73E6129C513350040B7C3 /* VoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6029C513350040B7C3 /* VoiceService.swift */; };
+		FAC73E6329C513EB0040B7C3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC73E6229C513EB0040B7C3 /* AVFoundation.framework */; };
+		FAC73E6529C534C20040B7C3 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6429C534C20040B7C3 /* ProductDetailViewController.swift */; };
 		FAF2364829C40FD90056E90A /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */; };
-		FAF2364A29C410870056E90A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364929C410870056E90A /* ViewController.swift */; };
 		FAF2364D29C49F730056E90A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364C29C49F730056E90A /* UIColor+Extension.swift */; };
 		FAF2364F29C4A5F80056E90A /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364E29C4A5F80056E90A /* ProductsService.swift */; };
 		FAF2365229C4E5430056E90A /* scan.json in Resources */ = {isa = PBXBuildFile; fileRef = FAF2365129C4E5430056E90A /* scan.json */; };
@@ -49,10 +52,13 @@
 		FA8081A929BD315A00798CF3 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		FA8081AB29BE775400798CF3 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		FA8081AF29C2B0D900798CF3 /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
-		FA8081B129C2B66800798CF3 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FA8081B129C2B66800798CF3 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		FA905CA529C3C405002E2D63 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FAC73E5E29C50EAE0040B7C3 /* UserActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivityType.swift; sourceTree = "<group>"; };
+		FAC73E6029C513350040B7C3 /* VoiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceService.swift; sourceTree = "<group>"; };
+		FAC73E6229C513EB0040B7C3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FAC73E6429C534C20040B7C3 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
-		FAF2364929C410870056E90A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAF2364C29C49F730056E90A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FAF2364E29C4A5F80056E90A /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
 		FAF2365129C4E5430056E90A /* scan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scan.json; sourceTree = "<group>"; };
@@ -68,6 +74,7 @@
 			files = (
 				FAF2365529C4E5CE0056E90A /* Lottie in Frameworks */,
 				FAF3D48E29C3AAB800EC9EA7 /* CoreML.framework in Frameworks */,
+				FAC73E6329C513EB0040B7C3 /* AVFoundation.framework in Frameworks */,
 				FAF3D49029C3AABD00EC9EA7 /* Vision.framework in Frameworks */,
 				FA905CA329C3C33A002E2D63 /* SwiftyJSON in Frameworks */,
 				FA0764D429C2D16200527ED1 /* CoreNFC.framework in Frameworks */,
@@ -80,6 +87,7 @@
 		FA0764D229C2D16200527ED1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAC73E6229C513EB0040B7C3 /* AVFoundation.framework */,
 				FAF3D48F29C3AABD00EC9EA7 /* Vision.framework */,
 				FAF3D48D29C3AAB700EC9EA7 /* CoreML.framework */,
 				FA0764D329C2D16200527ED1 /* CoreNFC.framework */,
@@ -122,6 +130,7 @@
 				FA80819629BC405200798CF3 /* Assets.xcassets */,
 				FA80819B29BC405200798CF3 /* Info.plist */,
 				FA8081AF29C2B0D900798CF3 /* products.json */,
+				FAC73E5E29C50EAE0040B7C3 /* UserActivityType.swift */,
 			);
 			path = ELCHackathon2023;
 			sourceTree = "<group>";
@@ -139,10 +148,10 @@
 			isa = PBXGroup;
 			children = (
 				FA80819129BC405100798CF3 /* HomeViewController.swift */,
-				FA8081B129C2B66800798CF3 /* TestViewController.swift */,
+				FA8081B129C2B66800798CF3 /* ScanViewController.swift */,
 				FAF3D49129C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift */,
 				FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */,
-				FAF2364929C410870056E90A /* ViewController.swift */,
+				FAC73E6429C534C20040B7C3 /* ProductDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				FAF2364E29C4A5F80056E90A /* ProductsService.swift */,
+				FAC73E6029C513350040B7C3 /* VoiceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -277,18 +287,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA8081B229C2B66800798CF3 /* TestViewController.swift in Sources */,
+				FA8081B229C2B66800798CF3 /* ScanViewController.swift in Sources */,
 				FA80819229BC405100798CF3 /* HomeViewController.swift in Sources */,
 				FA08C70B29C38DE90074B255 /* OriginsProductDetection.mlmodel in Sources */,
 				FAF2364F29C4A5F80056E90A /* ProductsService.swift in Sources */,
+				FAC73E6129C513350040B7C3 /* VoiceService.swift in Sources */,
 				FA80818E29BC405100798CF3 /* AppDelegate.swift in Sources */,
+				FAC73E5F29C50EAE0040B7C3 /* UserActivityType.swift in Sources */,
 				FA80819029BC405100798CF3 /* SceneDelegate.swift in Sources */,
 				FA8081AC29BE775400798CF3 /* ProductCell.swift in Sources */,
-				FAF2364A29C410870056E90A /* ViewController.swift in Sources */,
 				FAF3D49229C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift in Sources */,
 				FAF2364829C40FD90056E90A /* NavigationControllerDelegate.swift in Sources */,
 				FA905CA629C3C405002E2D63 /* Product.swift in Sources */,
 				FAF2364D29C49F730056E90A /* UIColor+Extension.swift in Sources */,
+				FAC73E6529C534C20040B7C3 /* ProductDetailViewController.swift in Sources */,
 				FA8081AA29BD315A00798CF3 /* CustomCollectionViewLayout.swift in Sources */,
 				FA8081A729BD13D300798CF3 /* CategoryCell.swift in Sources */,
 			);

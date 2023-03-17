@@ -11,15 +11,14 @@ import AVKit
 import AVFoundation
 import Vision
 import Lottie
+import IntentsUI
 
+class ScanViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, INUIAddVoiceShortcutViewControllerDelegate {
 
-class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     var bufferSize: CGSize = .zero
     var rootLayer: CALayer! = nil
-    
-    
-    
+        
     @IBOutlet weak private var previewView: UIView!
     private let session = AVCaptureSession()
     private var previewLayer: AVCaptureVideoPreviewLayer! = nil
@@ -29,6 +28,8 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     
     private var animationView: LottieAnimationView?
     
+    let synthesizer = AVSpeechSynthesizer()
+    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         // to be implemented in the subclass
     }
@@ -37,6 +38,23 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         super.viewDidLoad()
         setupAVCapture()
         setupAnimation()
+//        setupSiriShortcut()
+    }
+    
+    func setupSiriShortcut(){
+        
+        let btn_addToSiri = INUIAddVoiceShortcutButton(style: .blackOutline)
+        btn_addToSiri.translatesAutoresizingMaskIntoConstraints = false
+        
+        previewView.addSubview(btn_addToSiri)
+        
+//        Add it to the screen
+        
+        previewView.centerXAnchor.constraint(equalTo: btn_addToSiri.centerXAnchor).isActive = true
+        previewView.centerYAnchor.constraint(equalTo: btn_addToSiri.centerYAnchor).isActive = true
+        
+        btn_addToSiri.addTarget(self, action: #selector(addSiriShortcut), for: .touchUpInside)
+        
     }
     
     func setupAnimation(){
@@ -48,6 +66,35 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         previewView.addSubview(animationView!)
         animationView!.play()
     }
+    
+    func stopScanningAutomation(){
+        animationView?.stop()
+    }
+    
+    
+    @objc
+    func addSiriShortcut(){
+        
+        let activity = NSUserActivity(activityType: UserActivityType.goToScannerViewController)
+        activity.title = "Find A Product"
+        activity.isEligibleForSearch = true
+        activity.isEligibleForPrediction = true
+        activity.suggestedInvocationPhrase = "Find A Product"
+        
+        self.userActivity = activity
+        self.userActivity?.becomeCurrent()
+        
+        let shortcut = INShortcut(userActivity: activity)
+        let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+        
+        viewController.delegate = self
+        viewController.modalPresentationStyle = .formSheet
+        present(viewController, animated: true, completion: nil)
+        
+        
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -109,7 +156,16 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     }
     
     func startCaptureSession() {
-        session.startRunning()
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.session.startRunning()
+        }
+    }
+
+    
+    func stopCaptureSession(){
+        session.stopRunning()
+//        teardownAVCapture()
+        stopScanningAutomation()
     }
     
     // Clean up capture setup
@@ -123,24 +179,26 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         let exifOrientation: CGImagePropertyOrientation
         
         switch curDeviceOrientation {
-        case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
-            print("left")
+        case UIDeviceOrientation.portraitUpsideDown:
             exifOrientation = .left
-        case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
+        case UIDeviceOrientation.landscapeLeft:
             exifOrientation = .upMirrored
-            print("upMirrored")
-        case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
+        case UIDeviceOrientation.landscapeRight:
             exifOrientation = .down
-            print("down")
-        case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
+        case UIDeviceOrientation.portrait:
             exifOrientation = .up
-            print("up")
         default:
             exifOrientation = .up
-            print("up")
         }
-       
-       
         return exifOrientation
+    }
+    
+    
+    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
