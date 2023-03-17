@@ -1,23 +1,75 @@
 [
     {
-     "id" : 1
-     "name": "Energizing Gel Cream",
-     "description": "Glow for it with our best moisturizer for oily skin: it hydrates for 72 hours, improves skin’s moisture barrier and the best part—delivers all-day glow.",
-     "skin_types": ["Normal", "Dry", "Oily", "Combination"],
-     "skin_concern": [],
-     "categpry": "Moisturizers",
-     "price": 39.00,
-     "how_to_use": "AM and PM, dot, pat, press the moisturizer onto clean skin or after you apply treatment lotion and serum.",
+     "id" : 1,
+     "name": "GINZING",
+     "slug": "refreshing_eye_cream",
+     "description": "Vitamin C & Niacinamide Eye Cream To Brighten And Depuff",
+     "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive", "Acne Prone"],
+     "skin_concern": ["Dullness/Discoloration", "Aging", "Dehydration", "Lines and Wrinkles", "Visible Pores", "Oil Control", "Firming/Lifting", "Redness"],
+     "category": "eye-care",
+     "price": 37.00,
+     "how_to_use": "Gently tap onto the eye area with fingertips, both morning and night.",
      "ingredients": [
-         "Vital-Synthesis Technology": "Helps provide skin with natural energy to revitalize the look of tired skin",
-         "Vitamin C" : "Antioxidant-rich ingredient helps brighten skin over time",
-         "Niacinamide" : "Helps improve skin’s moisture bar"
+        { "Vitamin C" : "Helps provide skin with natural energy to revitalize the look of tired skin"},
+        {"Niacinamide": "Helps brighten under eyes"},
+        {"Caffeine from Coffee Beans": "Helps boost natural skin energy to help revitalize the look of skin" },
+        {"Ginseng": "Helps boost natural skin energy to help awaken the look of skin" }
      ],
      "colors": [],
-     "images": [
-        "product" : "",
-        "bg" : "",
-        "inside": "",
+     "images": ["refreshing_eye_cream_1", "refreshing_eye_cream_2"]
+    },
+    {
+     "id" : 2,
+     "name": "DR. ANDREW WEIL FOR ORIGINS",
+     "slug": "dr_andrew_weil_for_originst",
+     "description": "Mega-Mushroom Relief & Resilience Soothing Treatment Lotion",
+     "skin_types": [ "Dry", "Oily", "Combination"],
+     "skin_concern": ["Dullness/Discoloration", "Aging", "Dehydration", "Lines and Wrinkles", "Visible Pores", "Oil Control", "Firming/Lifting", "Redness"],
+     "category": "treatment",
+     "price": 40.00,
+     "how_to_use": "Apply AM and PM. Shake, pour into hands, then pat onto cleansed skin before serum and moisturizer. Similar to an essence or toner, this treatment lotion is a second step in your skincare routine.",
+     "ingredients": [
+        { "Reishi Mushroom":"Helps Boost Resilience"},
+        {"Fermented Chaga Mushroom": "Potent Skin Soother"},
+        {"Plant-Derived Hyaluronic Acid" : "This “moisture magnet” helps plump skin with weightless ultra-hydration and holds it in for healthier-looking skin."}
      ],
-    }
+     "colors": [],
+     "images": ["dr_andrew_weil_for_originst_1", "dr_andrew_weil_for_originst_2"]
+    },
+    {
+        "id" : 3,
+        "name": "OUT OF TROUBLE",
+        "slug": "out_of_trouble",
+        "description": "Our Out of Trouble™ Mask, as seen on Tik Tok, is a fan favorite—and for good reason. When skin is too slick or more pressing problems start to pop up, this oil-absorbing mask helps keep skin in the clear. Super-absorbent Zinc Oxide and Sulfur plus calming Camphor rapidly soak up oily-shine, slough off dead cells and sweep away debris. Together they steer skin clear of slippery situations, refine rough texture and pull the plug on troublemakers to help prevent potential outbursts.",
+        "skin_types": [ "Oily", "Combination"],
+        "skin_concern": ["Dullness/Discoloration", "Aging", "Dehydration", "Lines and Wrinkles", "Visible Pores", "Oil Control", "Firming/Lifting", "Redness"],
+        "category": "mask",
+        "price": 40.00,
+        "how_to_use": "Spread a layer over makeup-free face, avoiding eye area. Leave on for 10 minutes. Rinse. Can be used once a week, or more as needed.",
+        "ingredients": [
+           {"Camphor":"Helps Clears the Senses with a Cool, Clean Aroma"},
+           {"Fermented Chaga Mushroom": "Potent Skin Soother"},
+           {"Plant-Derived Hyaluronic Acid" : "This “moisture magnet” helps plump skin with weightless ultra-hydration and holds it in for healthier-looking skin."}
+        ],
+        "colors": [],
+        "images": ["out_of_trouble_1", "out_of_trouble_2"]
+       },
+       {
+        "id" : 4,
+        "name": "PLANTSCRIPTION",
+        "slug": "plantscription",
+        "description": "Our #1 peptide serum gives skin a total refresh: it reduces the look of lines and wrinkles and renews firmness for a more lifted look.",
+        "skin_types": [ "Oily", "Combination", "Dry", "Normal"],
+        "skin_concern": ["Dullness/Discoloration", "Aging", "Dehydration", "Lines and Wrinkles", "Visible Pores", "Oil Control", "Firming/Lifting", "Redness"],
+        "category": "serums",
+        "price": 87.00,
+        "how_to_use": "Apply 2-3 pumps (approximately a pea-sized amount) all over face, neck, and décolleté AM and PM. Use on clean skin.",
+        "ingredients": [
+           {"Anogeissus":"Helps skin maintain its natural Fibrillin, which helps with skins youthful bounce"},
+           {"Peptides": "3 peptides help skin boost its natural Collagen and visibly improve expression lines"},
+           {"Niacinamide" : "Improves skin moisture and helps even skin tone"}
+        ],
+        "colors": [],
+        "images": ["plantscription_1", "plantscription_2"]
+       }
 ]
