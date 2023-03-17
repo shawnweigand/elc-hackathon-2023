@@ -10,19 +10,35 @@ import SwiftyJSON
 class HomeViewController: UIViewController {
     
     
-    let categories = ["Lipstick", "Foundation", "Cleanser", "Toner"]
+    let categories = ["All", "Eye Care", "Treatment", "Skin Care"]
     
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
     var categoriesCollectionViewLayout: CustomCollectionViewLayout = CustomCollectionViewLayout()
+    
+    var productService: ProductsService = ProductsService()
     var products: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
+    
+        setupNavBar()
+        setupCategories()
+        setupProducts()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let indexPath = IndexPath(item: 0, section: 0)
+        categoriesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        categoriesCollectionViewLayout.currentPage = indexPath.item
+        categoriesCollectionViewLayout.previousOffet = categoriesCollectionViewLayout.updateOffset(categoriesCollectionView)
+        if let cell = categoriesCollectionView.cellForItem(at: indexPath) as? CategoryCell{
+            transformCell(cell)
+        }
+    }
+    
+    func setupCategories(){
         // Setup categories collection view
         categoriesCollectionView.backgroundColor = .clear
         categoriesCollectionView.decelerationRate = .fast
@@ -36,11 +52,13 @@ class HomeViewController: UIViewController {
         categoriesCollectionView.dataSource = self
         
         categoriesCollectionViewLayout.scrollDirection = .horizontal
-        categoriesCollectionViewLayout.minimumLineSpacing = 10.0
-        categoriesCollectionViewLayout.minimumInteritemSpacing = 10.0
+        categoriesCollectionViewLayout.minimumLineSpacing = 1.0
+        categoriesCollectionViewLayout.minimumInteritemSpacing = 1.0
         categoriesCollectionViewLayout.itemSize.width = 126
         categoriesCollectionViewLayout.itemSize.height = 50
-        
+    }
+    
+    func setupProducts(){
         // Setup products collection view
         productsCollectionView.backgroundColor = .clear
         productsCollectionView.decelerationRate = .fast
@@ -55,56 +73,42 @@ class HomeViewController: UIViewController {
         let productCollectionViewLayout = UICollectionViewFlowLayout()
         
         productCollectionViewLayout.scrollDirection = .vertical
-        productCollectionViewLayout.minimumLineSpacing = 5.0
-        productCollectionViewLayout.minimumInteritemSpacing = 5.0
+        productCollectionViewLayout.minimumLineSpacing = 19.0
+        productCollectionViewLayout.minimumInteritemSpacing = 1.0
         productsCollectionView.collectionViewLayout = productCollectionViewLayout
         
-        products = readJSONFile()
+        products = productService.list()
         productsCollectionView.reloadData()
+    }
+   
+    
+    func setupNavBar() {
+
+       let logoImage = UIImage.init(named: "logo")
+       let logoImageView = UIImageView.init(image: logoImage)
+       logoImageView.frame = CGRect(x:0.0,y:0.0, width:100,height:30)
+       logoImageView.contentMode = .scaleAspectFit
+       let imageItem = UIBarButtonItem.init(customView: logoImageView)
+       let widthConstraint = logoImageView.widthAnchor.constraint(equalToConstant: 100)
+       let heightConstraint = logoImageView.heightAnchor.constraint(equalToConstant: 30)
+        heightConstraint.isActive = true
+        widthConstraint.isActive = true
+        navigationItem.leftBarButtonItem =  imageItem
+   }
+    
+
+    func filterProducts(){
+        if categoriesCollectionViewLayout.currentPage == 0{
+            products = productService.list()
+            productsCollectionView.reloadData()
+            return
+        }
+        products = productService.list().filter({$0.category == self.categories[categoriesCollectionViewLayout.currentPage]})
+        productsCollectionView.reloadData()
+        print("reload")
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let indexPath = IndexPath(item: 0, section: 0)
-        categoriesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        categoriesCollectionViewLayout.currentPage = indexPath.item
-        categoriesCollectionViewLayout.previousOffet = categoriesCollectionViewLayout.updateOffset(categoriesCollectionView)
-        if let cell = categoriesCollectionView.cellForItem(at: indexPath) as? CategoryCell{
-            transformCell(cell)
-        }
-    }
-    
-    func readJSONFile() -> [Product] {
-        var products: [Product] = []
-
-        if let path = Bundle.main.path(forResource: "products", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let json = try JSON(data: data)
-
-                for item in json.arrayValue {
-                    let product = Product(id: item["id"].intValue,
-                                          name: item["name"].stringValue,
-                                          slug: item["slug"].stringValue,
-                                          description: item["description"].stringValue,
-                                          skinTypes: item["skin_types"].arrayValue.map { $0.stringValue },
-                                          skinConcern: item["skin_concern"].arrayValue.map { $0.stringValue },
-                                          category: item["category"].stringValue,
-                                          price: item["price"].doubleValue,
-                                          howToUse: item["how_to_use"].stringValue,
-                                          ingredients: item["ingredients"].dictionaryValue.mapValues { $0.stringValue },
-                                          colors: item["colors"].arrayValue.map { $0.stringValue },
-                                          images: item["images"].arrayValue.map { $0.stringValue })
-                    products.append(product)
-                }
-            } catch {
-                print("Error parsing JSON: \(error)")
-            }
-        }
-
-        return products
-    }
+  
 
     
     
@@ -131,8 +135,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         }
         
-        let cell = self.productsCollectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath)
+        let cell = self.productsCollectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
         let product = products[indexPath.row]
+        
+        cell.productImage.image = UIImage(named: product.images[2])
+        cell.productTitle.text = product.name
+        cell.productSubTitle.text = product.description
         
         return cell
        
@@ -148,14 +156,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return CGSize(width: 126, height: 50)
         }
         
-        return CGSize(width: 170, height: 250)
+        return CGSize(width: 300, height: 300)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoriesCollectionView {
             if indexPath.item == categoriesCollectionViewLayout.currentPage {
                 print("selected")
+                filterProducts()
             } else {
+                //for swipe to work
                 categoriesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
                 categoriesCollectionViewLayout.currentPage = indexPath.item
                 categoriesCollectionViewLayout.previousOffet = categoriesCollectionViewLayout.updateOffset(categoriesCollectionView)
@@ -163,8 +173,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
         
-        
-       
     }
     
     
@@ -201,6 +209,7 @@ extension HomeViewController {
             cell.categoryLabel.textColor = .black
             
         }
+        filterProducts()
         
         for otherCell in categoriesCollectionView.visibleCells as! [CategoryCell] {
             
