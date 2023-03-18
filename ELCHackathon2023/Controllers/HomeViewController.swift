@@ -173,6 +173,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
         
+            //        clicked on a product
+            //        Find the product with that id
+                let product = products[indexPath.row]
+                
+                //Display the product details
+                // Get a reference to the storyboard
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+                // Get a reference to the view controller you want to push to
+                let destinationViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
+                destinationViewController.product = product
+                // Push to the view controller
+                navigationController?.pushViewController(destinationViewController, animated: true)
+     
     }
     
     

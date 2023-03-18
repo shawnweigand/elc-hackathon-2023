@@ -26,6 +26,8 @@
 		FAC73E6129C513350040B7C3 /* VoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6029C513350040B7C3 /* VoiceService.swift */; };
 		FAC73E6329C513EB0040B7C3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC73E6229C513EB0040B7C3 /* AVFoundation.framework */; };
 		FAC73E6529C534C20040B7C3 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6429C534C20040B7C3 /* ProductDetailViewController.swift */; };
+		FAC73E6729C542E90040B7C3 /* LeafView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6629C542E80040B7C3 /* LeafView.swift */; };
+		FAC73E6929C54A550040B7C3 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6829C54A550040B7C3 /* RoundedCornerView.swift */; };
 		FAF2364829C40FD90056E90A /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */; };
 		FAF2364D29C49F730056E90A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364C29C49F730056E90A /* UIColor+Extension.swift */; };
 		FAF2364F29C4A5F80056E90A /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364E29C4A5F80056E90A /* ProductsService.swift */; };
@@ -58,6 +60,8 @@
 		FAC73E6029C513350040B7C3 /* VoiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceService.swift; sourceTree = "<group>"; };
 		FAC73E6229C513EB0040B7C3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FAC73E6429C534C20040B7C3 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		FAC73E6629C542E80040B7C3 /* LeafView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafView.swift; sourceTree = "<group>"; };
+		FAC73E6829C54A550040B7C3 /* RoundedCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
 		FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		FAF2364C29C49F730056E90A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FAF2364E29C4A5F80056E90A /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				FAF2364C29C49F730056E90A /* UIColor+Extension.swift */,
+				FAC73E6629C542E80040B7C3 /* LeafView.swift */,
+				FAC73E6829C54A550040B7C3 /* RoundedCornerView.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -287,10 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC73E6729C542E90040B7C3 /* LeafView.swift in Sources */,
 				FA8081B229C2B66800798CF3 /* ScanViewController.swift in Sources */,
 				FA80819229BC405100798CF3 /* HomeViewController.swift in Sources */,
 				FA08C70B29C38DE90074B255 /* OriginsProductDetection.mlmodel in Sources */,
 				FAF2364F29C4A5F80056E90A /* ProductsService.swift in Sources */,
+				FAC73E6929C54A550040B7C3 /* RoundedCornerView.swift in Sources */,
 				FAC73E6129C513350040B7C3 /* VoiceService.swift in Sources */,
 				FA80818E29BC405100798CF3 /* AppDelegate.swift in Sources */,
 				FAC73E5F29C50EAE0040B7C3 /* UserActivityType.swift in Sources */,
