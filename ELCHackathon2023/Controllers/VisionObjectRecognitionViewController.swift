@@ -86,6 +86,8 @@ class VisionObjectRecognitionViewController: ScanViewController {
         utterance.rate = 0.5
         synthesizer.speak(utterance)
         
+        print(slug)
+        
 //        Find the product with that id
         let product = ProductsService().list().first(where:({$0.slug == slug}))
         

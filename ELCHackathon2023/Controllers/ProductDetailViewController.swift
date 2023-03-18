@@ -17,7 +17,6 @@ class ProductDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         productImage.image = UIImage(named: product.images[0])
         productTitle.text = product.name
         productDescription.text = product.description
