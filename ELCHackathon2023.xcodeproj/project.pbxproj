@@ -28,6 +28,8 @@
 		FAC73E6529C534C20040B7C3 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6429C534C20040B7C3 /* ProductDetailViewController.swift */; };
 		FAC73E6729C542E90040B7C3 /* LeafView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6629C542E80040B7C3 /* LeafView.swift */; };
 		FAC73E6929C54A550040B7C3 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6829C54A550040B7C3 /* RoundedCornerView.swift */; };
+		FAC73E6B29C568FD0040B7C3 /* InventoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6A29C568FD0040B7C3 /* InventoryService.swift */; };
+		FAC73E6D29C5711C0040B7C3 /* InventoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6C29C5711C0040B7C3 /* InventoryCollectionViewController.swift */; };
 		FAF2364829C40FD90056E90A /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */; };
 		FAF2364D29C49F730056E90A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364C29C49F730056E90A /* UIColor+Extension.swift */; };
 		FAF2364F29C4A5F80056E90A /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF2364E29C4A5F80056E90A /* ProductsService.swift */; };
@@ -62,6 +64,8 @@
 		FAC73E6429C534C20040B7C3 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		FAC73E6629C542E80040B7C3 /* LeafView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafView.swift; sourceTree = "<group>"; };
 		FAC73E6829C54A550040B7C3 /* RoundedCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
+		FAC73E6A29C568FD0040B7C3 /* InventoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryService.swift; sourceTree = "<group>"; };
+		FAC73E6C29C5711C0040B7C3 /* InventoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewController.swift; sourceTree = "<group>"; };
 		FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		FAF2364C29C49F730056E90A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FAF2364E29C4A5F80056E90A /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				FAF3D49129C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift */,
 				FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */,
 				FAC73E6429C534C20040B7C3 /* ProductDetailViewController.swift */,
+				FAC73E6C29C5711C0040B7C3 /* InventoryCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			children = (
 				FAF2364E29C4A5F80056E90A /* ProductsService.swift */,
 				FAC73E6029C513350040B7C3 /* VoiceService.swift */,
+				FAC73E6A29C568FD0040B7C3 /* InventoryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -307,6 +313,8 @@
 				FAF3D49229C3AB5A00EC9EA7 /* VisionObjectRecognitionViewController.swift in Sources */,
 				FAF2364829C40FD90056E90A /* NavigationControllerDelegate.swift in Sources */,
 				FA905CA629C3C405002E2D63 /* Product.swift in Sources */,
+				FAC73E6B29C568FD0040B7C3 /* InventoryService.swift in Sources */,
+				FAC73E6D29C5711C0040B7C3 /* InventoryCollectionViewController.swift in Sources */,
 				FAF2364D29C49F730056E90A /* UIColor+Extension.swift in Sources */,
 				FAC73E6529C534C20040B7C3 /* ProductDetailViewController.swift in Sources */,
 				FA8081AA29BD315A00798CF3 /* CustomCollectionViewLayout.swift in Sources */,

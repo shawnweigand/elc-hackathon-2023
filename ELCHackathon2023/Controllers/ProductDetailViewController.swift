@@ -21,8 +21,11 @@ class ProductDetailViewController: UIViewController {
         productTitle.text = product.name
         productDescription.text = product.description
         productCategory.text = product.category
-        
-    
     }
+    
+    @IBAction func addToIntentory(_ sender: Any) {
+        InventoryService().add(product: product)
+    }
+    
 
 }

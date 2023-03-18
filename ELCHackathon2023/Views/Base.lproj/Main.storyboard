@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wd7-z2-RNA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ADv-kQ-vHS">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -59,9 +59,9 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zGg-kc-dEk">
-                                <rect key="frame" x="0.0" y="168" width="430" height="730"/>
+                                <rect key="frame" x="0.0" y="168" width="430" height="681"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" name="lightGrey"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ug0-N1-Wn1">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -124,19 +124,15 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wzQ-ml-bEX"/>
                         <color key="backgroundColor" name="lightGrey"/>
+                        <color key="tintColor" name="darkGreen"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="rxC-aJ-hVt">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Bot" image="person.bust.fill" catalog="system" id="8vD-78-1fF">
-                                <color key="tintColor" name="darkGreen"/>
-                            </barButtonItem>
-                            <barButtonItem title="Add Item" image="plus.viewfinder" catalog="system" id="8fE-9O-eBD">
-                                <color key="tintColor" name="darkGreen"/>
-                                <connections>
-                                    <segue destination="Rhh-JN-mr8" kind="show" id="8wy-u4-JhQ"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Add Item" image="plus.viewfinder" catalog="system" id="8fE-9O-eBD">
+                            <color key="tintColor" name="darkGreen"/>
+                            <connections>
+                                <segue destination="Rhh-JN-mr8" kind="show" id="8wy-u4-JhQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="categoriesCollectionView" destination="h8I-6U-LDT" id="7c3-1K-y7k"/>
@@ -145,7 +141,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9n-6k-xbS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2266" y="215"/>
+            <point key="canvasLocation" x="-1652" y="-134"/>
+        </scene>
+        <!--Inventory Collection View Controller-->
+        <scene sceneID="nYt-h0-1Vu">
+            <objects>
+                <collectionViewController id="1yy-C8-Ep0" customClass="InventoryCollectionViewController" customModule="ELCHackathon2023" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rft-lg-mPY">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="lightGrey"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Kxr-bm-kQ6">
+                            <size key="itemSize" width="300" height="300"/>
+                            <size key="estimatedItemSize" width="300" height="300"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="9pw-AF-aHS" customClass="ProductCell" customModule="ELCHackathon2023" customModuleProvider="target">
+                                <rect key="frame" x="65" y="0.0" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9IK-yu-cid">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wgj-ow-iV8">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F9V-FI-Ypy">
+                                                    <rect key="frame" x="0.0" y="227" width="300" height="73"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POWDER KISS VELVET BLUR SLIM STICK" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aw-Cz-sTY">
+                                                            <rect key="frame" x="8" y="11" width="284" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POWDER KISS VELVET BLUR SLIM STICK" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7s-Vy-UkM">
+                                                            <rect key="frame" x="8" y="37" width="284" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.51196336750000004" green="0.84489173660000005" blue="0.79534864589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="out_of_trouble_3" translatesAutoresizingMaskIntoConstraints="NO" id="vlm-6y-T7t">
+                                                    <rect key="frame" x="8" y="8" width="284" height="211"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="lightGreen"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.5568627451" green="0.83921568629999999" blue="0.80000000000000004" alpha="0.1088435374" colorSpace="custom" customColorSpace="sRGB"/>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="300" height="300"/>
+                                <connections>
+                                    <outlet property="containerView" destination="Wgj-ow-iV8" id="eOB-YC-3s4"/>
+                                    <outlet property="productImage" destination="vlm-6y-T7t" id="WBe-yG-Wm0"/>
+                                    <outlet property="productSubTitle" destination="H7s-Vy-UkM" id="dKJ-53-TW0"/>
+                                    <outlet property="productTitle" destination="8aw-Cz-sTY" id="8l8-Lc-WGR"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="1yy-C8-Ep0" id="80E-gP-jUP"/>
+                            <outlet property="delegate" destination="1yy-C8-Ep0" id="jdz-Kh-PK7"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="qki-sC-TFQ"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ila-xa-b3D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1799" y="793"/>
         </scene>
         <!--Product Detail View Controller-->
         <scene sceneID="1td-0H-OAs">
@@ -190,6 +264,9 @@
                                     <fontDescription key="titleFontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
                                     <color key="baseBackgroundColor" name="darkGreen"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addToIntentory:" destination="fmL-6U-pTA" eventType="touchUpInside" id="UgU-tA-aCM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ep0-tp-UzZ"/>
@@ -209,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOw-mD-6vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1543.2558139534883" y="607.72532188841205"/>
+            <point key="canvasLocation" x="-134" y="593"/>
         </scene>
         <!--Vision Object Recognition View Controller-->
         <scene sceneID="A2a-Ju-Kb3">
@@ -235,12 +312,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lWw-7m-1Lr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1345" y="-89"/>
+            <point key="canvasLocation" x="-908" y="-135"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Store-->
         <scene sceneID="2BX-2C-wGD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wd7-z2-RNA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Store" image="homekit" catalog="system" id="jHx-o1-LbF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v7y-s0-WyF">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
@@ -248,17 +326,61 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="s7b-sa-o8V" kind="relationship" relationship="rootViewController" id="q5p-XH-zCR"/>
+                        <segue destination="s7b-sa-o8V" kind="relationship" relationship="rootViewController" id="60u-xL-P7c"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frR-yp-VfB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3453" y="68"/>
+            <point key="canvasLocation" x="-2554.8837209302324" y="67.596566523605148"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="eJw-xG-NJi">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ADv-kQ-vHS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3WC-ny-sbI">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemFillColor"/>
+                        <color key="tintColor" name="lightGreen"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Wd7-z2-RNA" kind="relationship" relationship="viewControllers" id="WbD-sS-jKH"/>
+                        <segue destination="kI7-oc-9xc" kind="relationship" relationship="viewControllers" id="1gI-6k-Cr5"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cB9-CK-u31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3728" y="507"/>
+        </scene>
+        <!--Inventory-->
+        <scene sceneID="mC9-7k-Nlq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kI7-oc-9xc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Inventory" image="books.vertical" catalog="system" id="lef-FZ-Zht"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uee-56-V4j">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="lightGreen"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="lightGreen"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1yy-C8-Ep0" kind="relationship" relationship="rootViewController" id="FmE-Jz-3UD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dkm-Ij-T4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2555" y="793"/>
         </scene>
     </scenes>
     <resources>
+        <image name="books.vertical" catalog="system" width="128" height="107"/>
+        <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="out_of_trouble_3" width="1000" height="1000"/>
-        <image name="person.bust.fill" catalog="system" width="119" height="128"/>
         <image name="plantscription_1" width="1000" height="1000"/>
         <image name="plus.viewfinder" catalog="system" width="128" height="115"/>
         <image name="speaker.wave.3" catalog="system" width="128" height="84"/>
@@ -273,6 +395,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
