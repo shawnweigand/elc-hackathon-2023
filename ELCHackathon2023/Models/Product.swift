@@ -5,7 +5,7 @@
 //  Created by Macbook on 3/16/23.
 //
 
-struct Product {
+struct Product: Codable{
     let id: Int
     let name: String
     let slug: String
