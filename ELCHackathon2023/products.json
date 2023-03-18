@@ -3,7 +3,7 @@
      "id" : 1,
      "name": "GINZING",
      "slug": "refreshing_eye_cream",
-     "description": "Vitamin C & Niacinamide Eye Cream To Brighten And Depuff",
+     "description": "Glow for it with our best moisturizer for oily skin: it hydrates for 72 hours, improves skin’s moisture barrier and the best part—delivers all-day glow.",
      "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive", "Acne Prone"],
      "skin_concern": ["Dullness/Discoloration", "Aging", "Dehydration", "Lines and Wrinkles", "Visible Pores", "Oil Control", "Firming/Lifting", "Redness"],
      "category": "Eye Care",
@@ -22,7 +22,7 @@
      "id" : 2,
      "name": "DR. ANDREW WEIL FOR ORIGINS",
      "slug": "dr_andrew_weil_for_originst",
-     "description": "Mega-Mushroom Relief & Resilience Soothing Treatment Lotion",
+     "description": "It’s your skincare routine’s second step—our skin-strengthening treatment lotion to help visibly soothe sensitized-looking skin, fight dryness and more.",
      "skin_types": [ "Dry", "Oily", "Combination"],
      "skin_concern": ["Dullness/Discoloration", "Aging", "Dehydration", "Lines and Wrinkles", "Visible Pores", "Oil Control", "Firming/Lifting", "Redness"],
      "category": "Treatment",
@@ -71,5 +71,23 @@
         ],
         "colors": [],
         "images": ["plantscription_1", "plantscription_2", "plantscription_3"]
+       },
+       {
+        "id" : 5,
+        "name": "DRINK UP INTENSIVE",
+        "slug": "drink_up_intensive",
+        "description": "Looking to quench skins thirst? Smooth on our #1 overnight face mask to infuse skin with 72 hours of nourishing hydration—in just one sleep.",
+        "skin_types": [ "Dry", "Normal"],
+        "skin_concern": ["Dehydration", "Aging", "Dehydration", "Lines and Wrinkles", "Visible Pores", "Oil Control", "Firming/Lifting", "Redness"],
+        "category": "Treatment",
+        "price": 32.00,
+        "how_to_use": "Twice a week or as desired, gently massage onto clean skin at bedtime. Tissue off. Apply to hands as a moisturizing hand mask or hand cream.",
+        "ingredients": [
+           {"Avocado":"Helps Nourish and Moisturize Skin"},
+           {"Apricot": "Helps Moisturize and Condition Skin"},
+           {"Niacinamide" : "Helps Energize Skin to Boost Radiance & Strengthens Barrier"}
+        ],
+        "colors": [],
+        "images": ["drink_up_intensive_1", "drink_up_intensive_2", "drink_up_intensive_3"]
        }
 ]

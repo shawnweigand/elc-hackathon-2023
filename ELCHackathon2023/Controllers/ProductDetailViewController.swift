@@ -10,10 +10,19 @@ import UIKit
 class ProductDetailViewController: UIViewController {
 
     var product: Product!
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var productTitle: UILabel!
+    @IBOutlet weak var productDescription: UILabel!
+    @IBOutlet weak var productCategory: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        productImage.image = UIImage(named: product.images[0])
+        productTitle.text = product.name
+        productDescription.text = product.description
+        productCategory.text = product.category
+        
+    
     }
+
 }
