@@ -10,6 +10,135 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--AI Recommendation-->
+        <scene sceneID="nJ7-C2-VBj">
+            <objects>
+                <viewController id="z5E-jn-TPj" customClass="RecommendationViewController" customModule="ELCHackathon2023" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qWy-y6-bhO">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let us help you find the right Product for you!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uE-St-bU1">
+                                <rect key="frame" x="20" y="124" width="390" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select your skin type" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeO-Yc-iRe">
+                                <rect key="frame" x="20" y="215" width="390" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogl-yR-ttB">
+                                <rect key="frame" x="20" y="289" width="390" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Dry Skin">
+                                    <color key="baseBackgroundColor" name="lightGreen"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="drySkinAction:" destination="z5E-jn-TPj" eventType="touchUpInside" id="qcg-wt-m7Z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HME-Ys-N40">
+                                <rect key="frame" x="20" y="393" width="390" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sensitive Skin">
+                                    <color key="baseBackgroundColor" name="lightGreen"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="sensitiveSkinAction:" destination="z5E-jn-TPj" eventType="touchUpInside" id="6XX-Hd-ZJv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvy-wQ-tbX">
+                                <rect key="frame" x="20" y="492" width="390" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Oily">
+                                    <color key="baseBackgroundColor" name="lightGreen"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="OilySkinAction:" destination="z5E-jn-TPj" eventType="touchUpInside" id="zhC-BM-aVf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1MZ-fF-Ooc"/>
+                        <color key="backgroundColor" name="lightGrey"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="AI Recommendation" id="MUs-KO-EeA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5rF-DB-4Ov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1783.2558139534883" y="-815.66523605150223"/>
+        </scene>
+        <!--Recommendation Results View Controller-->
+        <scene sceneID="83q-7v-fzZ">
+            <objects>
+                <viewController storyboardIdentifier="RecommendationResultsViewController" id="T5h-hi-aRk" customClass="RecommendationResultsViewController" customModule="ELCHackathon2023" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cR6-qn-lau">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="bVK-uS-gau">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="230"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view alpha="0.050000000000000003" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7H8-XL-Tei">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="230"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="darkPink"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Personalized Recommendation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM0-Ws-Mmp">
+                                <rect key="frame" x="48" y="59" width="338" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fG2-Ip-kbW">
+                                <rect key="frame" x="20" y="238" width="390" height="660"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pe-7N-nUp">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="897"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Finding the right product for you..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YU-SU-xmi">
+                                        <rect key="frame" x="14" y="671" width="403" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="MLI-9a-iAn">
+                                        <rect key="frame" x="55" y="46" width="321" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BbW-32-Xjq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="overlayView" destination="3pe-7N-nUp" id="QY8-JN-IBg"/>
+                        <outlet property="textView" destination="fG2-Ip-kbW" id="LPa-Bp-aYK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yS5-Y5-a9n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-999.06976744186045" y="-816.3090128755365"/>
+        </scene>
         <!--Home-->
         <scene sceneID="bFN-FP-4KJ">
             <objects>
@@ -127,12 +256,20 @@
                         <color key="tintColor" name="darkGreen"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="rxC-aJ-hVt">
-                        <barButtonItem key="rightBarButtonItem" title="Add Item" image="plus.viewfinder" catalog="system" id="8fE-9O-eBD">
-                            <color key="tintColor" name="darkGreen"/>
-                            <connections>
-                                <segue destination="Rhh-JN-mr8" kind="show" id="8wy-u4-JhQ"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add Item" image="camera.filters" catalog="system" id="rRf-BQ-a2I">
+                                <color key="tintColor" name="darkGreen"/>
+                                <connections>
+                                    <segue destination="z5E-jn-TPj" kind="push" id="EnH-Io-zeM"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Add Item" image="plus.viewfinder" catalog="system" id="8fE-9O-eBD">
+                                <color key="tintColor" name="darkGreen"/>
+                                <connections>
+                                    <segue destination="Rhh-JN-mr8" kind="show" id="8wy-u4-JhQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="categoriesCollectionView" destination="h8I-6U-LDT" id="7c3-1K-y7k"/>
@@ -141,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9n-6k-xbS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1652" y="-134"/>
+            <point key="canvasLocation" x="-1782" y="-135"/>
         </scene>
         <!--Inventory Collection View Controller-->
         <scene sceneID="nYt-h0-1Vu">
@@ -291,7 +428,7 @@
             </objects>
             <point key="canvasLocation" x="-1088.3720930232557" y="791.84549356223181"/>
         </scene>
-        <!--Product Detail View Controller-->
+        <!--Product Detail-->
         <scene sceneID="1td-0H-OAs">
             <objects>
                 <viewController storyboardIdentifier="ProductDetailViewController" id="fmL-6U-pTA" customClass="ProductDetailViewController" customModule="ELCHackathon2023" customModuleProvider="target" sceneMemberID="viewController">
@@ -342,7 +479,7 @@
                         <viewLayoutGuide key="safeArea" id="ep0-tp-UzZ"/>
                         <color key="backgroundColor" name="lightGrey"/>
                     </view>
-                    <navigationItem key="navigationItem" id="434-OU-Dyf">
+                    <navigationItem key="navigationItem" title="Product Detail" id="434-OU-Dyf">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="speaker.wave.3" catalog="system" id="r1v-qg-2Zk">
                             <color key="tintColor" name="darkGreen"/>
                         </barButtonItem>
@@ -448,9 +585,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg" width="2140" height="721"/>
         <image name="bg_leaf2" width="3024" height="4032"/>
         <image name="books.vertical" catalog="system" width="128" height="107"/>
         <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
+        <image name="camera.filters" catalog="system" width="128" height="119"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="logo" width="4147" height="611"/>
         <image name="out_of_trouble_3" width="1000" height="1000"/>
@@ -459,6 +598,9 @@
         <image name="speaker.wave.3" catalog="system" width="128" height="84"/>
         <namedColor name="darkGreen">
             <color red="0.0" green="0.42745098039215684" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="darkPink">
+            <color red="0.88627450980392153" green="0.58431372549019611" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="lightGreen">
             <color red="0.51372549019607838" green="0.77254901960784317" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
