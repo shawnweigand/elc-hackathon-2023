@@ -171,6 +171,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 categoriesCollectionViewLayout.previousOffet = categoriesCollectionViewLayout.updateOffset(categoriesCollectionView)
                 setupCell()
             }
+            return 
         }
         
             //        clicked on a product

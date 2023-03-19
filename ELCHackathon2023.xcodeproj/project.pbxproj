@@ -22,6 +22,10 @@
 		FA8081B229C2B66800798CF3 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8081B129C2B66800798CF3 /* ScanViewController.swift */; };
 		FA905CA329C3C33A002E2D63 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = FA905CA229C3C33A002E2D63 /* SwiftyJSON */; };
 		FA905CA629C3C405002E2D63 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905CA529C3C405002E2D63 /* Product.swift */; };
+		FAA63BA529C797DA0004AC55 /* RoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA63BA429C797DA0004AC55 /* RoutineViewController.swift */; };
+		FAA63BAA29C79B5C0004AC55 /* OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA63BA929C79B5C0004AC55 /* OpenAI.swift */; };
+		FAA63BAD29C79D330004AC55 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAA63BAC29C79D330004AC55 /* OpenAISwift */; };
+		FAA63BAF29C7AD010004AC55 /* makeup.json in Resources */ = {isa = PBXBuildFile; fileRef = FAA63BAE29C7AD010004AC55 /* makeup.json */; };
 		FAC73E5F29C50EAE0040B7C3 /* UserActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E5E29C50EAE0040B7C3 /* UserActivityType.swift */; };
 		FAC73E6129C513350040B7C3 /* VoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC73E6029C513350040B7C3 /* VoiceService.swift */; };
 		FAC73E6329C513EB0040B7C3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC73E6229C513EB0040B7C3 /* AVFoundation.framework */; };
@@ -58,6 +62,9 @@
 		FA8081AF29C2B0D900798CF3 /* products.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		FA8081B129C2B66800798CF3 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		FA905CA529C3C405002E2D63 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FAA63BA429C797DA0004AC55 /* RoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineViewController.swift; sourceTree = "<group>"; };
+		FAA63BA929C79B5C0004AC55 /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
+		FAA63BAE29C7AD010004AC55 /* makeup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = makeup.json; sourceTree = "<group>"; };
 		FAC73E5E29C50EAE0040B7C3 /* UserActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivityType.swift; sourceTree = "<group>"; };
 		FAC73E6029C513350040B7C3 /* VoiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceService.swift; sourceTree = "<group>"; };
 		FAC73E6229C513EB0040B7C3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -86,6 +93,7 @@
 				FAF3D49029C3AABD00EC9EA7 /* Vision.framework in Frameworks */,
 				FA905CA329C3C33A002E2D63 /* SwiftyJSON in Frameworks */,
 				FA0764D429C2D16200527ED1 /* CoreNFC.framework in Frameworks */,
+				FAA63BAD29C79D330004AC55 /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +169,7 @@
 				FAF2364729C40FD90056E90A /* NavigationControllerDelegate.swift */,
 				FAC73E6429C534C20040B7C3 /* ProductDetailViewController.swift */,
 				FAC73E6C29C5711C0040B7C3 /* InventoryCollectionViewController.swift */,
+				FAA63BA429C797DA0004AC55 /* RoutineViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +205,7 @@
 				FAF2364E29C4A5F80056E90A /* ProductsService.swift */,
 				FAC73E6029C513350040B7C3 /* VoiceService.swift */,
 				FAC73E6A29C568FD0040B7C3 /* InventoryService.swift */,
+				FAA63BA929C79B5C0004AC55 /* OpenAI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -213,6 +223,7 @@
 		FAF2365029C4E5360056E90A /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				FAA63BAE29C7AD010004AC55 /* makeup.json */,
 				FAF2365129C4E5430056E90A /* scan.json */,
 			);
 			path = Lottie;
@@ -237,6 +248,7 @@
 			packageProductDependencies = (
 				FA905CA229C3C33A002E2D63 /* SwiftyJSON */,
 				FAF2365429C4E5CE0056E90A /* Lottie */,
+				FAA63BAC29C79D330004AC55 /* OpenAISwift */,
 			);
 			productName = ELCHackathon2023;
 			productReference = FA80818A29BC405100798CF3 /* ELCHackathon2023.app */;
@@ -269,6 +281,8 @@
 			packageReferences = (
 				FA905CA129C3C33A002E2D63 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				FAF2365329C4E5CE0056E90A /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				FAA63BA629C799810004AC55 /* XCRemoteSwiftPackageReference "openai-kit" */,
+				FAA63BAB29C79D330004AC55 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = FA80818B29BC405100798CF3 /* Products */;
 			projectDirPath = "";
@@ -287,6 +301,7 @@
 				FA80819A29BC405200798CF3 /* LaunchScreen.storyboard in Resources */,
 				FA8081B029C2B0D900798CF3 /* products.json in Resources */,
 				FA80819729BC405200798CF3 /* Assets.xcassets in Resources */,
+				FAA63BAF29C7AD010004AC55 /* makeup.json in Resources */,
 				FA80819529BC405100798CF3 /* Main.storyboard in Resources */,
 				FAF2365229C4E5430056E90A /* scan.json in Resources */,
 			);
@@ -318,7 +333,9 @@
 				FAF2364D29C49F730056E90A /* UIColor+Extension.swift in Sources */,
 				FAC73E6529C534C20040B7C3 /* ProductDetailViewController.swift in Sources */,
 				FA8081AA29BD315A00798CF3 /* CustomCollectionViewLayout.swift in Sources */,
+				FAA63BA529C797DA0004AC55 /* RoutineViewController.swift in Sources */,
 				FA8081A729BD13D300798CF3 /* CategoryCell.swift in Sources */,
+				FAA63BAA29C79B5C0004AC55 /* OpenAI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +573,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		FAA63BA629C799810004AC55 /* XCRemoteSwiftPackageReference "openai-kit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dylanshine/openai-kit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		FAA63BAB29C79D330004AC55 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		FAF2365329C4E5CE0056E90A /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -571,6 +604,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA905CA129C3C33A002E2D63 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		FAA63BAC29C79D330004AC55 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAA63BAB29C79D330004AC55 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
 		};
 		FAF2365429C4E5CE0056E90A /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
