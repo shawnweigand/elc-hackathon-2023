@@ -43,10 +43,32 @@ class OpenAIService{
             print("Error encoding InventoryProducts to JSON: \(error.localizedDescription)")
         }
 
+        return ""
+    }
+    
+    
+    func generatePromptForRecommandations(type: String) -> String {
+        
+        let InventoryProducts = InventoryService().list()
+        let productNames = InventoryProducts.map { $0.name }
+        let joinedNames = productNames.joined(separator: ", ")
+        
+        let products = ProductsService().list()
+        
+        let encoder = JSONEncoder()
+
+        do {
+            let jsonData = try encoder.encode(products)
+            let jsonString = String(data: jsonData, encoding: .utf8)
+            return "Reccomend me an Origins product to use for \(type) that does not include: \(joinedNames). Products Information: \(jsonString)."
+           
+        } catch {
+            print("Error encoding InventoryProducts to JSON: \(error.localizedDescription)")
+        }
 
         return ""
-        
     }
+    
     
     
 }
