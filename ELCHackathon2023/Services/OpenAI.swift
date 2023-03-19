@@ -37,7 +37,7 @@ class OpenAIService{
         do {
             let jsonData = try encoder.encode(InventoryProducts)
             let jsonString = String(data: jsonData, encoding: .utf8)
-            return "Please provide me a skincare routine only using the following products: \(joinedNames). Product information: \(jsonString) . Provide the routine in step by step format. Include Morning Routine and Night Routine. Also include how many times a day to apply the items, etc."
+            return "Please provide me a skincare routine only using the following products: \(joinedNames). Product information: \(jsonString) . Provide the routine in step by step format. Include Morning Routine and Night Routine. Also include how many times a day to apply the items. After the skin care routine, include tips for beginners and Accessibility users to stay consistant with their routine."
            
         } catch {
             print("Error encoding InventoryProducts to JSON: \(error.localizedDescription)")
