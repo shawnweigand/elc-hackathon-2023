@@ -11,6 +11,9 @@ import Vision
 
 class VisionObjectRecognitionViewController: ScanViewController {
     
+    
+    
+    
     private var detectionOverlay: CALayer! = nil
     
     // Vision parts
@@ -74,38 +77,48 @@ class VisionObjectRecognitionViewController: ScanViewController {
     
     
     func productFound(slug: String){
-        
         stopCaptureSession()
+        //        Find the product with that id
+        let productFoundByScanner = ProductsService().list().first(where:({$0.slug == slug}))
+        // Get a reference to the storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // Get a reference to the view controller you want to push to
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
+        
+        if((self.product) != nil){
+            
+            if self.product.slug == productFoundByScanner?.slug {
+                destinationViewController.product = product
+            } else {
+                let utterance = AVSpeechUtterance(string: "This is not the product you are looking for. Try Again.")
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+                utterance.rate = 0.5
+                synthesizer.speak(utterance)
+                startCaptureSession()
+                return
+            }
+            
+        }
+        
+        
+       
         // Vibrate the phone
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
         
         // Text to speech
-        let utterance = AVSpeechUtterance(string: "Product has been found.")
+        let utterance = AVSpeechUtterance(string: "Great! Product has been detected.")
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.5
         synthesizer.speak(utterance)
+   
+        if self.product == nil {
+            destinationViewController.product = productFoundByScanner
+        }
         
-        print(slug)
-        
-//        Find the product with that id
-        let product = ProductsService().list().first(where:({$0.slug == slug}))
-        
-        //Display the product details
-        // Get a reference to the storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        // Get a reference to the view controller you want to push to
-        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
-        destinationViewController.product = product
         // Push to the view controller
         navigationController?.pushViewController(destinationViewController, animated: true)
     }
-    
-    
-    
-    
-    
     
     func downsamplePixelBuffer(_ pixelBuffer: CVPixelBuffer, to size: CGSize) -> CVPixelBuffer? {
         var ciImage = CIImage(cvPixelBuffer: pixelBuffer)

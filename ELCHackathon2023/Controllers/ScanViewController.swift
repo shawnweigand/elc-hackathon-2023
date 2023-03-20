@@ -18,6 +18,8 @@ class ScanViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
     
     var bufferSize: CGSize = .zero
     var rootLayer: CALayer! = nil
+    
+    var product: Product!
         
     @IBOutlet weak private var previewView: UIView!
     private let session = AVCaptureSession()
@@ -39,6 +41,15 @@ class ScanViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         setupAVCapture()
         setupAnimation()
 //        setupSiriShortcut()
+        
+        if self.product != nil {
+            let utterance = AVSpeechUtterance(string: "Point your phone at your items. We will let you know when the item is detected")
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            utterance.rate = 0.5
+            synthesizer.speak(utterance)
+        }
+        
+        
     }
     
     func setupSiriShortcut(){

@@ -451,7 +451,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZu-MR-De6">
-                                <rect key="frame" x="20" y="515" width="390" height="246"/>
+                                <rect key="frame" x="20" y="515" width="390" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Our Out of Trouble™ Mask, as seen on Tik Tok, is a fan favorite—and for good reason. When skin is too slick or more pressing problems start to pop up, this oil-absorbing mask helps keep skin in the clear. Super-absorbent Zinc Oxide and Sulfur plus calming Camphor rapidly soak up oily-shine, slough off dead cells and sweep away debris. Together they steer skin clear of slippery situations, refine rough texture and pull the plug on troublemakers to help prevent potential outbursts.</string>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
@@ -464,7 +464,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDH-pk-u5m">
-                                <rect key="frame" x="8" y="769" width="414" height="70"/>
+                                <rect key="frame" x="8" y="694" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add to Inventory">
@@ -473,6 +473,18 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addToIntentory:" destination="fmL-6U-pTA" eventType="touchUpInside" id="UgU-tA-aCM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYe-mI-LbL">
+                                <rect key="frame" x="8" y="772" width="414" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Detect Product">
+                                    <fontDescription key="titleFontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                                    <color key="baseBackgroundColor" name="darkPink"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="detectProduct:" destination="fmL-6U-pTA" eventType="touchUpInside" id="g8x-FL-cgi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -493,12 +505,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOw-mD-6vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="129"/>
+            <point key="canvasLocation" x="-114.41860465116279" y="128.75536480686696"/>
         </scene>
         <!--Vision Object Recognition View Controller-->
         <scene sceneID="A2a-Ju-Kb3">
             <objects>
-                <viewController id="Rhh-JN-mr8" customClass="VisionObjectRecognitionViewController" customModule="ELCHackathon2023" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VisionObjectRecognitionViewController" id="Rhh-JN-mr8" customClass="VisionObjectRecognitionViewController" customModule="ELCHackathon2023" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Ww-nm-wu5">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

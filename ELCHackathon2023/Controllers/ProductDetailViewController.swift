@@ -27,5 +27,19 @@ class ProductDetailViewController: UIViewController {
         InventoryService().add(product: product)
     }
     
+    
+    @IBAction func detectProduct(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // Get a reference to the view controller you want to push to
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "VisionObjectRecognitionViewController") as! VisionObjectRecognitionViewController
+        destinationViewController.product = product
+        // Push to the view controller
+        navigationController?.pushViewController(destinationViewController, animated: true)
+        
+        
+    }
+    
 
 }
