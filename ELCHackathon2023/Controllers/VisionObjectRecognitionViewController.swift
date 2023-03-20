@@ -58,19 +58,8 @@ class VisionObjectRecognitionViewController: ScanViewController {
             }
             // Select only the label with the highest confidence.
             let topLabelObservation = objectObservation.labels[0]
-//            print(topLabelObservation.identifier, topLabelObservation.confidence)
-            
+
             return productFound(slug: topLabelObservation.identifier)
-            
-//            let generator = UINotificationFeedbackGenerator()
-//            generator.notificationOccurred(.success)
-//
-//            //            VoiceService().speak(text: "Product found")
-//
-//            let utterance = AVSpeechUtterance(string: "Found")
-//            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-//            utterance.rate = 0.5
-//            synthesizer.speak(utterance)
             
         }
     }
